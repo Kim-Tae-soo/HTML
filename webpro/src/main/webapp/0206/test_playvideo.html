@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>영상실행</title>
+
+	<style>
+		/*iframe을 안보이도록 설정 초기화
+이미지 클릭하는 스크립트 에서 보이도록 설정*/
+
+		iframe {
+			display: none;
+			border: 2px dotted gray;
+		}
+
+		img {
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+
+
+	<script>
+		function playShow(vid) {
+
+			var vurl = "https://www.youtube.com/embed/" + vid;
+
+			// 실행 위치 찾기 - iframe 의 id를 이용하여 
+
+			vidName = document.getElementById('ifr');
+
+			//iframe의 src값 설정 
+
+			vidName.setAttribute('src', vurl);
+
+			// iframme 을 보이도록 설정
+			vidName.style.display = "block";
+
+			// 실행 
+		}
+
+		window.onload = function () {
+
+			vidName = document.getElementsByClassName('imgc');
+			// console.log(vidName[0].getAttribute('alt'));
+
+			//vidName[0], vidName[1]에 대한 이벤트 핸들러 작성
+			for(let i = 0; i <vidName.length; i++){
+				// playshow함수를 참조할때 파라미터가 필요하다 - 실행안됨
+				vidName[i].addEventListener('click',playShow)			
+			}
+
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<pre>
+<br><br>
+<p> 각img 태그에 onclick= "함수이름()"<br>
+스크립트에서 함수를 정의한다</p>
+이미지를 클릭하면 iframe영역에 동영상을 실행합니다.
+
+클릭동작이 필요 - 이벤트 설정 - 핸들링을 구현해야한다
+</pre>s
+	<img src="../images/보_좌.png" alt="보_좌.png" onclick="playShow('_ysomCGaZLw?si=5sFg4u2bRnp8tcUU&autoplay=1&mute=1')">
+
+	<img src="../images/보_우.png" alt="보_우.png" onclick="playShow('LOCPPagTPwY?si=vUzMm5tD7Ovw9jHS&autoplay=1')">
+	<hr>
+
+	<p>스크립트에서 img의 속성 class를 검색해서 이벤트 핸들링을 설정</p>
+	<img src="../images/보_좌.png" alt="보_좌.png" class="imgc">
+	<img src="../images/보_우.png" alt="보_우.png" class="imgc">
+
+	<br><br>
+
+	<iframe src="" id="ifr" name="ifr" title="video"></iframe>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+
+ 스크립트에서 html요소 찾기/ 검색하기
+ 
+ -------id를 이용
+	var vidName = document.getElemeentById('id이름')
+ 	var vidName = document.querySelector('#id이름')
+ 	
+--------calss를 이용
+	
+vidName = document.getElementsByClassName('imc');		// 유사배열을 리턴
+vidName[0], vidName[1]
+
+vidName = document.querySelector('.imc');				// 한개만 리턴
+
+vidName = document.querySelectorAll('.imc');			// 유사배열을 리턴
+vidName[0], vidName[1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

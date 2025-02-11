@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 80px;
+            height: 30px;
+        }
+
+        form {
+            border: 2px solid orange;
+            margin: 20px auto;
+            padding: 30px;
+            width: 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="button요소.jsp" method="post">
+
+        <label for="id">아이디</label>
+        <input type="text" name="id" id="id"><br>
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name"><br>
+        <label for="tel">전화번호</label>
+        <input type="text" name="tel" id="tel"><br>
+        <br>
+        <p>전송 가능한 요소들</p>
+        <input type="image" src="../images/check.png" alt="check.png">
+        <input type="submit" value="로그인">
+        <button type="submit">제출</button>
+        <button>전송</button>
+        <br><br>
+        <p>전송 기능이 없는 요소들</p>
+        <input type="button" value="확인">
+        <button type="button">확인</button>
+
+    </form>
+</body>
+
+</html>

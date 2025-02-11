@@ -1,0 +1,43 @@
+스크립트에서 html요소 찾기/검색하기
+
+-----------------------------------------------id를 이용
+var vidName = document.getElementById('id이름')
+var vidName = document.querySelector('#id이름')
+
+int a = 10
+String b = "hello"
+
+-----------------------------------------------class를 이용
+
+vidName = document.getElementByClassName('className')   // 유사 배열 리턴
+vidName[0], vidName[1]
+
+vidName = document.querySelector('.imgc')   // 한개만 리턴
+vidName = document.querySelectorAll('.imgc')    // 유사 배열 리턴
+vidName[0], vidName[1]
+
+
+
+-------------------------------------------------
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+html요소에서 값을 가져오거나 출력 시 
+
+1. value           --- input 요소 - id,name,pass 등등..
+
+2. innerHTML       --- input 외 요소 - div , span, p, table, tr,td,a 등등..
+    ┗ 내용속에 HTML태그가 포함되어 있는 경우.
+
+3. innerText       --- input 외 요소 - div , span, p, table, tr,td,a 등등..
+    ┗ 내용속에 HTML태그가 포함되어 있지 않은 경우.
+
+
+---------------------------------------------------
+
+변수
+
+var :   같은 이름으로 중복선언
+        함수범위 내에서 사용이 가능하다.
+let :   같은 이름으로 중복선언 불가
+        블럭범위 내에서 사용이 가능하다.
+
