@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+div > p{
+    font-size: 1.5em;
+}
+div p[class = aa]{
+    color: red;
+}
+
+/*
+div .aa{
+
+}
+*/
+
+/*
+#bb{}
+div #bb{}
+div > #bb{}
+*/
+
+p[id=bb]{
+    background: lime;
+}
+/*
+p[class]{
+
+}
+p[id]{
+
+}
+*/
+
+</style>
+</head>
+<body>
+
+    <div>
+        <p class="aa">무궁화 꽃이 피었습니다.</p>
+    </div>
+
+    <div>
+        <p class="aa">무궁화 꽃이 피었습니다.</p>
+    </div>
+
+    <div >
+        <p id="bb">무궁화 꽃이 피었습니다.</p>
+    </div>
+
+    
+</body>
+</html>

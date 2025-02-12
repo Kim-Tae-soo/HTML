@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<script>
+function proc1(){
+    // HTML 요소 접근
+    let vcolor = document.querySelector("#color");
+    let vrang = document.querySelector("#heig");
+    // 값을 가져온다.
+    let colorValue = vcolor.value;
+    console.log(colorValue);
+
+    // form영역의 배경색을 바꾼다.
+    // form태그를 id를 ff 검색
+    let vform = document.querySelector('#ff');
+    vform.style.background = colorValue;
+    
+
+
+    let rangValue = vrang.value;
+
+    //span에 출력
+    //span 검색
+    let vspan = document.querySelectorAll('span');
+    vspan[0].innerText = rangValue;
+}
+</script>
+
+</head>
+<body>
+    
+    <form id="ff" action="form_newelement2.jsp" method="post">
+
+            <label for="id">아이디</label>
+            <input type="text" name="id" id="id"><br>
+            <label for="bir">생일</label>
+            <input type="date" name="bir" id="bir"><br>
+            <label for="age">나이</label>
+            <input type="number" name="num" id="age" min="10" max="90" value="50" step="10"><br>
+            <label for="color">색상</label>
+            <input type="color" name="color" id="color"><br>
+            <label for="heig">키</label>
+            <input type="range" name="heig" id="heig" min="100" max="200" value="150" step="10"><br>
+            <span></span> 키의 값을 출력 <br>
+
+            <input type="submit" value="전송">
+            <input type="button" value="확인" onclick="proc1()">
+            
+    </form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* 외부 스타일임 여기가 먼저 시작됌 */
+
+label {
+  background: silver;
+}
+
+form {
+  background: skyblue;
+}
+
+

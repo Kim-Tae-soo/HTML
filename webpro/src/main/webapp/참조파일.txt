@@ -16,6 +16,16 @@ vidName = document.querySelector('.imgc')   // 한개만 리턴
 vidName = document.querySelectorAll('.imgc')    // 유사 배열 리턴
 vidName[0], vidName[1]
 
+--------- tag이름을 이용한 검색 -------------
+
+vspan = document.getElementsByTagName('span'); // 유사배열을 리턴
+vspan[0] vspan[1]
+
+vspan = document.querySelector('span')
+vspan.innerText
+
+vspan = document.querySelectorAll('span')   // 유사배열을 리턴
+vspan[1], vspan[0].innerText
 
 
 -------------------------------------------------
