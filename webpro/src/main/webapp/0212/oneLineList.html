@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    body *{
+        box-sizing: border-box;
+    }
+    #u2{
+        border: 10px inset red;
+        border-left : none;
+        border-right : none;
+        list-style-type: none;
+        height : 100px;
+        /* li의 모양을 변경 */
+
+    }
+    #u2 li{
+        /* u2안에 있는 li선택 */
+        /* border : 1px dotted orange; */
+        margin : 9px;
+        padding: 10px;
+        width: 22%;
+        float : left;
+        text-align: center;
+        /* 왼쪽으로 붙게 했더니 ul에 사이즈가 없어서 확 줄어듬. */
+    }
+    #u2 li a{ 
+         /* #u2 a{ } , #u2 > li > a 도 사용가능하나 지금 방식을 많이 사용함.  */
+        font : 1.3em bold;
+        letter-spacing: 15px;
+        text-transform: uppercase;
+    }
+    #u2 li a:hover{
+        font-size : 1.5em;
+        background: yellow;
+    }
+    #u2 li a:link{
+        color : red;
+        text-decoration : none;
+    }
+    #u2 li a:visited{
+        color : green;
+    }
+    #u2 li a:active{
+        text-decoration: underline;
+        color : blue;
+    }
+</style>
+</head>
+<body>
+    <ul id="u1">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">QnA</a></li>
+        <li><a href="#">Board</a></li>
+        <!-- 넘어가는 페이지가 없을 때엔 #기호 줘도 됨. 만약 주고가 있다면 주소를 넘겨줘야함. -->
+    </ul>
+    <br>
+    <hr>
+    <br>
+    <ul id="u2">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">QnA</a></li>
+        <li><a href="#">Board</a></li>
+        <!-- 넘어가는 페이지가 없을 때엔 #기호 줘도 됨. 만약 주고가 있다면 주소를 넘겨줘야함. -->
+    </ul>
+</body>
+</html>
