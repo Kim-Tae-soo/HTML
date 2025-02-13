@@ -13,7 +13,11 @@ vidName = document.getElementByClassName('className')   // 유사 배열 리턴
 vidName[0], vidName[1]
 
 vidName = document.querySelector('.imgc')   // 한개만 리턴
+vidName = document.querySelector('input[class=imbc]');
+
+
 vidName = document.querySelectorAll('.imgc')    // 유사 배열 리턴
+vidName = document.querySelectorAll('input[class=imbc]');
 vidName[0], vidName[1]
 
 --------- tag이름을 이용한 검색 -------------
@@ -26,6 +30,19 @@ vspan.innerText
 
 vspan = document.querySelectorAll('span')   // 유사배열을 리턴
 vspan[1], vspan[0].innerText
+
+--- name을 이용해서 검색하는 방법 ---
+document.form의 name.요소이름 name
+
+document.ff.fdType
+document.querySelector('input[name=aa]')
+document.querySelectorAll('input[name=aa]')
+
+-- 속성(id또는 class)을 이용한 선택
+aa = document.querySelector('input[type=radio]')
+aa = document.querySelectorAll('input[type=radio]')  // 유사배열을 리턴
+aa[0] aa[1]
+
 
 
 -------------------------------------------------
@@ -51,3 +68,16 @@ var :   같은 이름으로 중복선언
 let :   같은 이름으로 중복선언 불가
         블럭범위 내에서 사용이 가능하다.
 
+
+
+// Java Script 표준 번호
+ES1,2,3,4,5 
+    ==> var
+        getElementById()
+        getElementsByClassName()
+        getElementsByTagName()
+ES6 (2015년) 
+    ==> let
+        const
+        querySelector()
+        querySelectorAll() 
