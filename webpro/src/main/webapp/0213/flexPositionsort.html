@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #container{display: flex;flex-direction: row;flex-wrap: wrap; height: 300px;background:dodgerblue;}
+    #container div{background: white; width: 100px; margin: 10px; font-size: 30px;}
+    #container div:nth-child(2n){font-size: 80px;}
+</style>
+
+</head>
+
+<body>
+    <h3>Flex - align - items</h3>
+
+    <h3>메뉴선택</h3>
+    <form mname="ff">
+        <label><input type="radio" name="fdType" value="stretch" checked="checked">stretch</label>
+        <label><input type="radio" name="fdType" value="center" checked="checked">center</label>
+        <label><input type="radio" name="fdType" value="flex-start" checked="checked">flex-start</label>
+        <label><input type="radio" name="fdType" value="flex-end" checked="checked">flex-end</label>
+        <label><input type="radio" name="fdType" value="baseline" checked="checked">baseline</label>
+    </form>
+
+    <br>
+    <div id="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+    <script>
+        var aa = document.querySelectorAll('input[type=radio]');
+        console.log(aa[0].value);
+
+        // container 검색
+        //fcont = document.getElementById('container');
+        //fcont = document.querySelector('div[id=container]')
+        fcont = document.querySelector('#container')
+        
+        for(let i=0; i<aa.length; i++){
+            aa[i].addEventListener('change', function(){
+                // 선택된 메뉴대로 container의 자식 item들의 위치를 변경 한다.
+                fcont.style.alignItems = aa[i].value;
+            })
+        }
+
+        // var aa = document.querySelectorAll('input[type=fdType]')
+    </script>
+</body>
+
+</html>

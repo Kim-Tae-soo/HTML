@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    
+    html,body{ margin: 0px; padding: 0px;}
+    body *{box-sizing: border-box; margin: 2px; border: 1px solid gray; border-radius: 10px;}
+    #container{display: flex; flex-direction: column;}
+    header,footer{height: 50px; background: orange;}
+    #content{display: flex; flex-direction: row;}
+    aside,section{height: 500px;}
+    aside{flex: 20%; background: cyan;}
+    section{flex:60%; background: coral;}
+
+</style>
+</head>
+<body>
+<div id="container">
+    <header></header>
+    <div id="content">
+        <aside></aside>
+        <section></section>
+        <aside></aside>
+    </div>
+    <footer></footer>
+</div>
+</body>
+</html>

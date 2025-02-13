@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-width: 900px;
+        }
+
+        header,footer,aside,section,nav,article {
+            box-sizing: border-box;
+            border: 1px dotted pink;
+            border-radius: 15px;
+            margin: 2px;
+        }
+
+        header,footer {
+            height: 50px;
+            background: orange;
+        }
+        #left, section, #right{
+            height: 500px;
+        }
+        aside{
+            width: calc(20% - 1%);
+            background: skyblue;
+        }
+
+        #left{
+            float: left;
+        }
+        #right{
+            float: right;
+        }
+        section{
+            width: calc(61.9% - 1%);
+            float: left;
+            background: coral;
+            background-image: linear-gradient(coral,white);
+        }
+        footer{
+            clear: both;
+        }
+        figure{
+            border: 1px dotted gray;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        figcaption{
+            text-align: center;
+        }
+        nav{
+            height: 40px;
+            border: 1px solid red;
+            background-color: pink;
+        }
+        article{
+            border: 2px dotted green;
+            width: 95%;
+            height: 38%;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header></header>
+    <nav></nav>
+    <aside id="left">
+        <figure>
+            <img src="/images/spongebob.png" alt="스폰지밥">
+            <figcaption>스폰지밥</figcaption>
+        </figure>
+    </aside>
+    
+    <section>
+        <h3>여기는 section</h3>
+        <article></article>
+        <article></article>
+    </section>
+    
+    <aside id="right"></aside>
+    <footer></footer>
+
+</body>
+
+</html>

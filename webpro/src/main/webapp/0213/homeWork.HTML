@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 0;
+            border: 2px solid blue;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #ffeb3b;
+            text-align: center;
+            padding: 20px;
+            margin: 5px;
+            border-radius: 15px;
+        }
+
+        header h1 {
+            margin-top: 40px;
+        }
+
+
+        .container {
+            display: flex;
+        }
+
+        aside {
+            background-color: #f48fb1;
+            padding: 20px;
+            width: 25%;
+            margin: 5px;
+            border-radius: 15px;
+        }
+
+
+        aside img {
+            display: block;
+            margin: 20px auto 0;
+            width: 80%;
+        }
+
+        #sec1,#sec2 {
+            border-radius: 15px;
+        }
+
+        main {
+            background-color: green;
+            width: 75%;
+            border-radius: 15px;
+        }
+
+
+
+        footer {
+            background-color: #9575cd;
+            text-align: center;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 15px;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 1.5em;
+        }
+
+        article {
+            border: 2px dotted green;
+            width: 95%;
+            height: 41%;
+            margin: 10px;
+            padding: 5px;
+            border-radius: 15px;
+            background-color: mediumaquamarine;
+        }
+
+        section {
+            width: 100%;
+
+            background: mediumturquoise;
+            margin: 5px;
+            border-radius: 15px;
+        }
+
+        #li1 {
+            color: white;
+        }
+
+        #li2,
+        #li3 {
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>My Blog Page</h1>
+        <p>시멘틱 태그로 만들어진 페이지 입니다.</p>
+    </header>
+    <div class="container">
+        <aside>
+            <h2>Links</h2>
+            <dl>
+                <li id="li1"><a href="https://www.w3schools.com">w3schools</a></li>
+                <li id="li2"><a href="https://www.naver.com">Naver</a></li>
+                <li id="li3"><a href="https://www.daum.net">Daum</a></li>
+            </dl>
+            <img src="../images/spongebob.png" alt="스폰지밥">
+            <figcaption>스폰지밥</figcaption>
+        </aside>
+        <section>
+            <article>
+
+                <h2>Semantic Tags</h2>
+                <p>시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적을 명확하게 알려주는 요소이다. 레이아웃을 만들때 쓰는 것. 의미가 있는 요소라면 div보다는 시멘틱
+                    태그를 사용해준다.
+
+            </article>
+            <article>
+                <h2>div와 span</h2>
+                <p>div은 "divide"의 약자로서 페이지를 논리적인 섹션으로 분리하는데 사용되는 태그이다. span요소는 인라인 요소로서 텍스트를 위한 컨테이너로 사용할 수 있다.</p>
+
+            </article>
+        </section>
+    </div>
+    <footer>
+        <p>Copyright (c)2019 Hong</p>
+    </footer>
+</body>
+
+</html>

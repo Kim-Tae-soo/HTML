@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-width: 900px;
+        }
+
+        div {
+            box-sizing: border-box;
+            border: 1px dotted pink;
+            margin: 2px;
+        }
+
+        #header,#footer {
+            height: 50px;
+            background: orange;
+        }
+        #left, #main, #right{
+            height: 500px;
+        }
+        #left,#right{
+            width: calc(20% - 1%);
+            background: skyblue;
+        }
+        #left{
+            float: left;
+        }
+        #right{
+            float: right;
+        }
+        #main{
+            width: calc(61% - 1%);
+            float: left;
+            background: coral;
+        }
+        #footer{
+            clear: both;
+        }
+        
+       
+    </style>
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <div id="left"></div>
+    <div id="main"></div>
+    <div id="right"></div>
+    <div id="footer"></div>
+
+</body>
+
+</html>
