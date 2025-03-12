@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/public.css">
+<script>
+
+    today = new Date();
+
+    const proc1 = () => {
+        // let mybirth = new Date("1998.8.21");
+        let mybirth = new Date(1998, 8-1,21);
+
+        to = today.getTime();
+        my = mybirth.getTime();
+
+        console.log(to,my)
+
+        // 현재 - 과거 (생일)
+        times = to - my;
+
+        res = times / 1000 / 60 / 60 / 24 / 365;
+        res = res.toFixed(0);
+        str = `현재 : ${today.toLocaleString()} <br>`;
+        str += `생일 : ${mybirth.toDateString()}<br>`
+        str += `${res} 년째 살고 있습니다.`
+
+        document.querySelector('#result1').innerHTML = str
+
+    }
+
+    const proc2 = () => {
+
+        //100일의 millisec 값 구하기
+        let milli100 = 1000 * 60 * 60 *  24 * 100;
+
+        // 현재의 millisec
+        let totime = today.getTime();
+
+        // - 현재 + 미래(100일)
+        let days = totime + milli100;
+
+        let after100 = new Date(days);
+
+        // alert(after100);
+
+        str = `현재 : ${today.toLocaleString()}<br>`;
+        str += `100일후 :  ${after100.toLocaleString()}<br>`
+
+        document.querySelector('#result2').innerHTML = str;
+
+    }
+
+    const proc3 = () => {
+        // 선택한 날짜의 값을 가져온다.
+        // id = sday의 요소로 접근 - 값 가져오기 - String 값
+        let sValue = document.getElementById('sday').value;
+    
+        // String 값으로 날짜를 생성
+        let sDate = new Date(sValue);
+    
+        // 선택한 날짜의 millisec 값 구하기
+        let sMilli = sDate.getTime();
+    
+        // 총 sec 오늘의 millisec - 선택한 날의 millisec
+        let today = new Date();
+        let totSec = today.getTime() - sMilli;
+    
+        // 총 sec로 경과한 날 구하기 /1000 /60 /60 /24
+        let day = totSec / 1000 / 60 / 60 / 24;
+    
+        // 7일보다 큰 지 아닌 지 비교
+        let res;
+        if(day > 7){
+            res = "교환 불가능";  
+        } else {
+            res = "교환 가능";  
+        }
+    
+        // 출력
+        let str = `현재 : ${today.toLocaleString()} <br> 구입 날짜 : ${sDate.toLocaleString()} <br> 결과 : ${res}`;
+    
+        document.querySelector("#result3").innerHTML = str;
+        }
+</script>
+</head>
+<body>
+
+
+   <div class="box">
+        <h3>태어남 -> 현재 몇년</h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+
+    <div class="box">
+        <h3>100일후의 날짜</h3>
+        <input type="button" value="확인" onclick="proc2()">
+        <br><br>
+        <div id="result2" class="res"></div>
+    </div>
+
+    
+</body>
+</html>

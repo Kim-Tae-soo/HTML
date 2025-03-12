@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css" />
+    <script>
+      const myCar = {
+        make: "bmw",
+        name: "x5",
+        year: 2020,
+        speed: 100,
+        color: "whitegray",
+      };
+
+      const users = [
+        { name: "철수", age: 25 },
+        { name: "영희", age: 21 },
+      ];
+
+      const proc1 = () => {
+        //myCar.make myCar.name myCar.year myCar['make']
+
+        const { make, name } = myCar;
+
+        // 출력 모양 만들기
+        let str = "name과 make 출력하기 <br>";
+        str += `${make} ${name}`;
+
+        document.querySelector("#result1").innerHTML = str;
+      };
+
+      const proc2 = () => {
+        const { year } = myCar;
+
+        let str = "year만 출력하기<br>";
+        str += `${year}`;
+
+        document.querySelector("#result2").innerHTML = str;
+      };
+
+      const proc3 = () => {
+        // year, speed, color 추출
+        // const { speed, year, color } = myCar;
+
+        const { make, name, ...rest } = myCar;
+        console.log(make, name, rest);
+
+        // rest변수는 리터럴 객체임 - 객체 리터럴 순회 이용 - for~in Object
+
+        let str = "";
+        for (e in rest) {
+          str += `${e} : ${myCar[e]} <br> `;
+
+          document.querySelector("#result3").innerHTML = str;
+        }
+      };
+
+      const proc4 = () => {
+        let str = "";
+        /*
+        for (let user of users) {
+            // user는 객체를 받는 변수
+          str += `${user.name} ${user.age} <br/>`;
+        }
+        */
+
+        /*
+        for (let { name, age } of users) {
+          str += `${name} ${age} <br/>`;
+        }
+        */
+
+        /*
+        users.forEach((user, index) => {
+          str += `${user.name} ${user.age} <br/>`;
+        });
+        */
+
+        // forEach의 user를 구조 분해
+
+        users.forEach(({ name, age }, index) => {
+          str += `${name} ${age} <br/>`;
+        });
+
+        document.querySelector("#result4").innerHTML = str;
+      };
+      const proc5 = () => {
+        printUser(users);
+      };
+
+      const printUser = (persons) => {
+        let str = "";
+        /*
+        persons.forEach((person) => {
+          str += `${person.name} ${person.age} <br/>`;
+        });
+        */
+        persons.forEach(({ name, age }) => {
+          str += `${name} ${age} <br/>`;
+        });
+        document.querySelector("#result5").innerHTML = str;
+      };
+    </script>
+  </head>
+  <body>
+    <pre>
+        const myCar = {
+            make: "bmw",
+            name: "x5",
+            year: 2020,
+            speed: 100,
+            color: "Whitegray",
+          };
+    </pre>
+    <div class="box">
+      <h3>name과 make 가져오기</h3>
+      <input type="button" value="확인" onclick="proc1()" />
+      <br /><br />
+      <div id="result1" class="res"></div>
+    </div>
+
+    <div class="box">
+      <h3>year만 가져오기</h3>
+      <input type="button" value="확인" onclick="proc2()" />
+      <br /><br />
+      <div id="result2" class="res"></div>
+    </div>
+
+    <div class="box">
+      <h3>year, speed, color 가져오기</h3>
+      <input type="button" value="확인" onclick="proc3()" />
+      <br /><br />
+      <div id="result3" class="res"></div>
+    </div>
+
+    <pre>
+        const users = [
+        { name: "철수", age: 25 },
+        { name: "영희", age: 21 },
+      ];
+    </pre>
+
+    <div class="box">
+      <h3>객체 배열 가져오기</h3>
+      <input type="button" value="확인" onclick="proc4()" />
+      <br /><br />
+      <div id="result4" class="res"></div>
+    </div>
+
+    <div class="box">
+      <h3>함수의 매개변수로 전달된 객체 구조분해 하기</h3>
+      <input type="button" value="확인" onclick="proc5()" />
+      <br /><br />
+      <div id="result5" class="res"></div>
+    </div>
+  </body>
+</html>

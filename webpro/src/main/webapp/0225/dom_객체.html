@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css" />
+    <script>
+      const proc1 = () => {
+        // id=ua인 요소 검색
+
+        // 1. ------------------------------------------------------------
+        uaId = document.getElementById("ua");
+
+        list = uaId.getElementsByTagName("li"); // HTMLCollection 반환
+        // 반복처리 - for, for-of
+        console.log("1", list);
+        for (i = 0; i < list.length; i++) {
+          // console.log(list[i].firstChild); // Text Object "List item 1"
+          console.log(list[i].firstChild.data); // 실제 데이터 List item 1
+        }
+
+        for (l of list) {
+          console.log(l.firstChild.data);
+        }
+
+        //HTMLCollection을 배열로 변환 -> forEach문 사용 가능
+        list = Array.from(list);
+        console.log("1-2");
+        list.forEach((li) => {
+          console.log(li.firstChild.data);
+        });
+
+        // 2. ------------------------------------------------------------
+        uaId = document.getElementById("ua");
+        list = uaId.querySelectorAll("li"); // NodeList 반환
+        // 반복처리 - for, for-of, forEach
+        console.log("2", list);
+
+        list.forEach((li, idx) => {
+          console.log(li.firstChild.data);
+        });
+
+        // 3. ------------------------------------------------------------
+        list = document.querySelectorAll("#ua li"); // NodeList 반환
+        console.log("3");
+        list.forEach((li) => {
+          console.log(li.firstChild.data);
+        });
+
+        // 4. ------------------------------------------------------------
+        vua = document.getElementById("ua");
+        list = vua.childNodes; // NodeList를 반환, 주석 줄바꿈도 포함
+        console.log("4", list);
+        list.forEach((li) => {
+          console.log(li);
+
+          //tagName이 li 인것만 선택 처리
+          console.log(li.tagName);
+          if (li.tagName == "li") {
+            consol.log(li.firChild.data);
+          }
+        });
+
+        // 5. ------------------------------------------------------------
+        vua = document.getElementById("ua");
+        list = vua.children; // HTMLCollection리턴 주석 줄바꿈을 포함하지 않는다.
+        console.log("5 list", list);
+        let res = "";
+        list = Array.from(list);
+        list.forEach((n) => {
+          res += `${n.firstChild.data}<br>`;
+        });
+
+        document.querySelector("#result1").innerHTML = res;
+      };
+
+      const proc2 = () => {
+        list = document.querySelectorAll("#ub li"); // NodeList 반환
+        list.forEach((li) => {
+          console.log(li.firstChild.data);
+
+          // img 태그를 생성
+          vimg = document.createElement("img");
+          vimg.src = `../images/${li.firstChild.data}`;
+          vimg.alt = `${li.firstChild.data}`;
+          // li에 자식노드로 추가
+          li.appendChild(vimg);
+        });
+      };
+
+      const proc3 = (item) => {
+        // item 변수, 지역 변수, 매개변수, li 객체를 받음
+
+        console.log(li.firstChild.data);
+
+        // img 태그를 생성
+        vimg = document.createElement("img");
+        vimg.src = `../images/${li.firstChild.data}`;
+        vimg.alt = `${li.firstChild.data}`;
+        // li에 자식노드로 추가
+        li.appendChild(vimg);
+      };
+
+      window.onload = function () {
+        vlist = document.querySelectorAll("#ud li"); // NodeList로 5개 반환
+        console.log("1",this)
+        
+        vlist.forEach(function(n,index){
+          console.log("2 ", this);
+
+          n.addEventListener("click", function () {
+            console.log("3 ", this);
+
+            console.log(this); // click 되는 li 객체
+            console.log(this.firstChild.data); //
+
+            // img 태그를 생성
+            vimg = document.createElement("img");
+            vimg.src = `../images/${this.firstChild.data}`;
+            vimg.alt = `${this.firstChild.data}`;
+
+            this.appendChild(vimg);
+          });
+        });
+
+        /*
+        vlist.forEach((n) => {
+          n.addEventListener("click", showImg);
+        });
+        */
+      };
+      // 화살표 함수에서 this : 상위 개체
+      // const showImg = () => { //this : window}
+      function showImg() {
+        console.log(this); // click 되는 li 객체
+        console.log(this.firstChild.data); //
+
+        // img 태그를 생성
+        vimg = document.createElement("img");
+        vimg.src = `../images/${this.firstChild.data}`;
+        vimg.alt = `${this.firstChild.data}`;
+
+        this.appendChild(vimg);
+      }
+    </script>
+    <style>
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h3></h3>
+      <ul id="ua">
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+        <li>List item 4</li>
+        <li>List item 5</li>
+      </ul>
+      <input type="button" value="확인" onclick="proc1()" />
+      <br /><br />
+      <div id="result1" class="res"></div>
+    </div>
+
+    <div class="box">
+      <h3>확인 버튼을 클릭하면 각 list item의 문자를 가지고 이미지를 생성</h3>
+      <ul id="ub">
+        <li>spongebob.png</li>
+        <li>studycom.jpg</li>
+        <li>Penguins.jpg</li>
+        <li>스포츠.jpg</li>
+        <li>앨범1.jpg</li>
+      </ul>
+      <input type="button" value="확인" onclick="proc2()" />
+      <br /><br />
+      <div id="result2" class="res"></div>
+    </div>
+
+    <div class="box">
+      <h3>각 list를 클릭하면 그 list item의 문자를 가지고 이미지를 생성</h3>
+      <ul id="uc">
+        <li onclick="proc3(this)">spongebob.png</li>
+        <li onclick="proc3(this)">koala.jpg</li>
+        <li onclick="proc3(this)">Penguins.jpg</li>
+        <li onclick="proc3(this)">Coca-Cola-logo.png</li>
+        <li onclick="proc3(this)">호랑이1.jpg</li>
+      </ul>
+      <br /><br />
+      <div id="result3" class="res"></div>
+    </div>
+    <div class="box">
+      <h3>각 list를 클릭하면 그 list item의 문자를 가지고 이미지를 생성</h3>
+      <ul id="ud">
+        <li>spongebob.png</li>
+        <li>koala.jpg</li>
+        <li>Penguins.jpg</li>
+        <li>Coca-Cola-logo.png</li>
+        <li>호랑이.jpg</li>
+      </ul>
+      <br /><br />
+      <div id="result3" class="res"></div>
+    </div>
+  </body>
+</html>

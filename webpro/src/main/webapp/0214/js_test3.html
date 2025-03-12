@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="/JS/public.js"></script>
+    <script>
+        function show(){
+            // id = result를 검색
+            let res = document.getElementById('result');
+            // let res = document.querySelector('#result')
+
+            // res변수의 대상요소
+            // res.innerText="<h1>hello~</h1>";
+            res.innerHTML="<h1>hello~</h1>";
+            res.style.color = "blue";
+
+        }
+    </script>
+    <style>
+        /*
+        #result{
+            color: red;
+        }
+            */
+    </style>
+</head>
+<body>
+    <h3>내부 스크립트 사용</h3>
+    <input type="button" value="확인" onclick="show()">
+    <br><br>
+    <div id="result" class="res"></div>
+
+    <hr color="red">
+    <h3>외부 script 사용</h3>
+    <input type="button" value="확인" onclick="show2()">
+    <div id="result2" class="res"></div>
+    <br><br>
+
+    <h3>인라인 script 사용</h3>
+    <input type="button" value="확인" onclick="alert('hello~')">
+    <br><br>
+    <div id="result3" class="res"></div>
+</body>
+</html>

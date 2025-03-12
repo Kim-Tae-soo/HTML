@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        label {
+            display: inline-block;
+            width: 10%;
+            margin-top: 1%;
+            margin-left: 5%;
+            text-align: left;
+        }
+
+        #check {
+            margin-left: 1%;
+        }
+
+        #Resultbutton {
+            width: 15%;
+            height: 25px;
+        }
+
+        .textcolor {
+            color: silver;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        fieldset {
+            width: 50%;
+            padding: 20px;
+
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid silver;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            width: auto;
+            height: auto;
+            background: black;
+            color: white;
+            border-radius: 20px;
+            margin: 5px;
+        }
+
+        a {
+            background: black;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>장바구니</h1>
+    <div>
+
+        <fieldset>
+            <table>
+                <tr>
+                    <th>품목</th>
+                    <th>가격</th>
+                    <th>수량</th>
+                    <th>합계</th>
+                </tr>
+                <tr>
+                    <td>컴퓨터 세트</td>
+                    <td>2,000,000원</td>
+                    <td><input type="number" value="0" min="0"></td>
+                    <td><input type="number" value="0" readonly></td>
+                </tr>
+                <tr>
+                    <td>티셔츠</td>
+                    <td>50,000원</td>
+                    <td><input type="number" value="0" min="0"></td>
+                    <td><input type="number" value="0" readonly></td>
+                </tr>
+                <tr>
+                    <td>음악파일</td>
+                    <td>1,000원</td>
+                    <td><input type="number" value="0" min="0"></td>
+                    <td><input type="number" value="0" readonly></td>
+                </tr>
+                <tr>
+                    <td>영화파일</td>
+                    <td>5,000원</td>
+                    <td><input type="number" value="0" min="0"></td>
+                    <td><input type="number" value="0" readonly></td>
+                </tr>
+            </table>
+            <div class="buttons">
+                <button>계산</button>
+                <button>구매</button>
+                <button><a href="/WebPage_HW/HTML/WokrFolder/index.html">뒤로가기</a></button>
+            </div>
+
+        </fieldset>
+    </div>
+</body>
+
+</html>

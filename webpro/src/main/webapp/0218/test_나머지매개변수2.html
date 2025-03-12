@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/public.css">
+
+<script>
+    const myFun = (a,b,...args) => {
+
+        console.log(a,b,args);
+
+        // a변수, b변수는 단일값을 대입받는다
+        // args변수는 배열, 여러개의 값을 받을 수 있다.
+
+        // 출력 내용
+        let str = "";
+        str += `a = ${a} <br>`;
+        str += `b = ${b} <br>`;
+        str += `args배열 = ${args} <br>`;
+
+        return str;
+           
+    }
+
+    // 함수호출
+    let res1 = myFun(1,2,3,4,5,6);
+    let res2 = myFun(10,20,30,40);
+    let res3 = myFun(5,6);
+
+    window.onload = function(){
+        document.getElementById('result1').innerHTML = res1;
+        document.getElementById('result1').innerHTML += res2;
+        document.getElementById('result1').innerHTML += res3    ;
+        
+    }
+
+</script>
+</head>
+<body>
+
+
+   <div class="box">
+        <h3></h3>
+        <input type="button" value="확인" ">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+
+</body>
+</html>

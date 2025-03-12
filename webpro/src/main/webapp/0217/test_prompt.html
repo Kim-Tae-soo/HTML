@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="/css/public.css">
+<script>
+
+    /*
+	
+    let userName = window.prompt("이름을 입력하세요", "홍길동"); 
+	
+	window.alert(userName);
+    
+    */
+
+    /* function proc1() */
+    // const proc1 = function() { }
+    const proc1 = () =>{
+        let su1 = parseInt(window.prompt("정수1 입력"));
+        let su2 = parseInt(window.prompt("정수2 입력"));
+
+        let sum = su1 + su2;
+
+        // 출력
+        window.alert(su1 + " " + su2 + " " + sum);
+        console.log(su1,su2, sum);
+
+        // id = result인 요소를 검색
+        let out = document.getElementById('result');
+
+        // 출력내용
+
+        /*
+        let str = "첫번째 수 : " + su1 + "<br>";
+        str += "두번째 수 : " + su2 + "<br>";
+        str += "합 : " + sum + "<br>";
+        */
+
+        let str = `첫번째 수 : ${su1} <br>`;
+        str += `두번째 수 : ${su2} <br>`;
+        str += `합 : ${sum} <br>`
+        out.innerHTML = str;
+
+
+
+    
+    }
+</script>   
+</head>
+<body>
+<h3>두개의 수를 입력하여 덧셈</h3>
+<input type="button" value="확인" onclick="proc1()">
+<hr>
+<div id="result" class="res"></div>
+</body>
+</html>

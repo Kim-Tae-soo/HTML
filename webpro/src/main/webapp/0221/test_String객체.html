@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/public.css">
+
+  <script>
+
+    let str = "우리나라 대한민국 우리나라 만세";
+
+    const proc1 = () => {
+      let input = prompt("이름 입력");
+      console.log(input.length);
+      
+      input = input.trim();
+      console.log(input.length);
+
+      if(input == "" || input.length < 1){
+        alert("데이터를 다시 입력하세요");
+      } else {
+        alert("정상처리 되었습니다")
+      }
+
+    }
+
+    const proc2 = () => {
+      const textareaEl = document.querySelector("#area");
+      tvalue = textareaEl.value.replaceAll(/\n/g, "<br>");
+
+      document.querySelector("#result2").innerHTML = tvalue
+    }
+
+    const proc3 = () => {
+      let strsubs = str.substring(2, 5);
+      let strslice = str.slice(2,5);
+      let strsub = str.substr(2,5);
+
+      let res = `${str} <br>substring ${strsubs}<br>slice ${strslice}<br>substr ${strsub}<br>`;
+
+      document.querySelector("#result3").innerHTML = res;
+    }
+
+    const proc4 = () => {
+        let res = `${str}<br>`;
+        
+        for(i=0; i<str.length; i++){
+            res += `${i}번쨰 => ${str[i]} <br>`
+        }
+        document.getElementById('result4').innerHTML = res; 
+
+        sarr = str.split(" ");
+
+        res = `${str}<br>`;
+        sarr.forEach(( rs , index )=>{
+            res += `${index}번쨰 => ${rs} <br>`
+        })
+
+        document.getElementById('result4').innerHTML += res; 
+    }
+  </script>
+</head>
+<body>
+  
+  <div class="box">
+    <h3>trim</h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <br><br>
+    <div id="result1" class="res"></div>
+  </div>
+  
+  <div class="box">
+    <h3>replace</h3>
+    <textarea rows="5" cols="30" name="" id="area"><textarea>
+    </textarea>
+    <input type="button" value="확인" onclick="proc2()">
+    <br><br>
+    <div id="result2" class="res"></div>
+  </div>
+  
+  <div class="box">
+    <h3>slice(start, end) : start ~ end-1 까지문자열 추출<br>
+      substring(start, end) : start ~ end-1 까지문자열 추출<br>
+      substr(start, length) : start ~ 갯수(크기)를 지정해서 추출</h3>
+    </textarea>
+    <input type="button" value="확인" onclick="proc3()">
+    <br><br>
+    <div id="result3" class="res"></div>
+  </div>
+
+  <div class="box">
+    <h3></h3>
+    </textarea>
+    <input type="button" value="확인" onclick="proc4()">
+    <br><br>
+    <div id="result4" class="res"></div>
+  </div>
+
+</body>
+</html>

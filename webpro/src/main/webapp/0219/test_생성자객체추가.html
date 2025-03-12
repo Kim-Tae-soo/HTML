@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/public.css">
+<script>
+
+    function Rect(width, height) {
+        this.width = width;
+        this.height = height;
+
+        this.getArea = function () {
+            return this.width * this.height;
+        }
+    }
+
+    // Rect객체의 prototype에 getCircum() 메서드를 추가
+    // 모든 객체가 공유하는 메소드가 된다
+    Rect.prototype.getCircum = function(){
+        return (parseInt(this.width) + parseInt(this.height)) * 2;
+    }
+
+    const proc1 = () => {
+        const r1 = new Rect(4, 8);
+        printRect("#result1", r1);
+    }
+
+    const proc2 = () => {
+        const r2 = new Rect(12, 23);
+        printRect("#result2", r2);
+    }
+
+    const printRect = (result, obj) => {
+            
+        // obj변수는 r1또는 r2객체를 대입 받는다.
+        // r1객체에는 둘레구하는 메소드를 추가했다.
+        console.log(result, obj);
+
+        let str =  `Rect 객체 <hr>`;
+
+        str += `가로 : ${obj.width} <br>`;
+        str += `세로 : ${obj.height}<br>`;
+
+        str += `면적 : ${obj.getArea()}<br>`;
+
+        // r2에서 호출시에는 getCircum()메서드가 없기 떄문에 오류 발생
+        str += `둘레 : ${obj.getCircum()}<br>`;
+
+        document.querySelector(result).innerHTML = str
+    }
+
+</script>
+</head>
+<body>
+
+
+   <div class="box">
+        <h3></h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+
+    <div class="box">
+        <h3></h3>
+        <input type="button" value="확인" onclick="proc2()">
+        <br><br>
+        <div id="result2" class="res"></div>
+    </div>
+
+</body>
+</html>

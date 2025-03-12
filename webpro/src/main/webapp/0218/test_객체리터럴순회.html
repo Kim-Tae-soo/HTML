@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/public.css">
+<script>
+    const myCar = {
+        make : "bmw",
+        name : "x5",
+        year : 2020,
+        speed : 100
+    }
+
+    const proc1 = () => {
+
+
+        //value값을 출력 할 때
+
+        myCar.make
+        myCar.name
+        myCar.year
+        myCar.speed
+
+        myCar['make']
+        myCar['name']
+        myCar['year']
+        myCar['speed']
+
+        let str ="";
+        // 반복문을 이용
+        for(let k in myCar){
+
+            // k = myCar 객체의 키가 들어감
+            str += `${k} <br>`
+
+        }
+        document.getElementById('result1').innerHTML = str;
+    }
+</script>
+</head>
+<body>
+
+
+   <div class="box">
+        <h3></h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+
+</body>
+</html>

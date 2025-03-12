@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <script>
+        /*
+        function calc(op){ }
+        const calc = function(op){}
+        */
+
+
+
+        // id = y 인 요소 가져오기
+        const calc = op => {
+            let res = 0;
+            // id = x 인 요소 검색 - 값가져오기
+            let xValue = parseInt(document.getElementById('x').value);
+            let yValue = parseInt(document.getElementById('y').value);
+
+            switch (op) {
+                case "+":
+                    res = xValue + yValue;
+                    break;
+                case "-":
+                    res = xValue - yValue
+                    break;
+                case "*":
+                    res = xValue * yValue
+                    break;
+                case "/":
+                    res = xValue / yValue
+                    res = res.toFixed(2);
+                    break;
+
+            }
+
+            // 출력
+            // id = sum 인 요소 검색 - 출력 value
+            document.getElementById('sum').value = res;
+
+            //  id=sp1, id=sp2, id=sp3인 요소를 검색 - 출력 innerHtml / innerText
+            document.getElementById("sp1").innerHTML = xValue;
+            document.getElementById("sp2").innerHTML = yValue;
+            document.getElementById("sp3").innerHTML = res;
+            
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3></h3>
+        <form>
+            첫번째 :<input id="x"><br>
+            두번째 :<input id="y"><br>
+            결과 :<input id="sum"><br>
+            <input type="button" onclick=" calc('+')" value="+">
+            <input type="button" onclick=" calc('-')" value="-">
+            <input type="button" onclick=" calc('*')" value="*">
+            <input type="button" onclick=" calc('/')" value="/"><br>
+            <p>첫번째 값 :<span id="sp1"></span> </p>
+            <p>두번째 값 :<span id="sp2"></span> </p>
+            <p>결과 :<span id="sp3"></span> </p>
+        </form>
+
+    </div>
+</body>
+
+</html>

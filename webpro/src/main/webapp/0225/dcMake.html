@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/public.css">
+<style>
+    body *{box-sizing: border-box;}
+    #result1,#result2{display: flex; flex-direction: row; height: 200px;}
+    #result1 div,#result2 div{flex : 25%; border : 2px solid blue; margin : 2px; padding : 2px; height : 95%; background-color: rgb(148, 234, 218);}
+    img{width: 100%; height: 75%;}
+    p{font-size: 1.0rem; text-align: center;}
+</style>
+<script>
+    let ptag = null;
+    let ptag2 = null;
+
+    const proc1 = (vimg) => {
+        
+        /* vimg 지역변수 매개변수 클릭한 img가 대입 */
+        
+        // 이미 만들어진 p태그를 삭제한다.
+        // 첫번째 클릭시에는 p태그가 아직 없다.
+        // 두번째 클릭할 때 부터 p태그가 주어진다.
+
+        if(ptag != null) ptag.remove()
+
+        // 할인율을 랜덤으로 발생 5 ~ 10사이
+        rnd = Math.floor(Math.random() * 6 + 5);
+        // 할인율로 text노르를 생성한다.
+        tnode = document.createTextNode("할인율 : " + rnd + "%");
+        // p태그 생성
+        ptag = document.createElement('p');
+        // p태그에 text노드를 자식노드로 추가
+        ptag.appendChild(tnode);
+        // 클릭한 이미지를 기준으로 부모노드 찾기
+        a = vimg.parentNode;
+        // 부모노드에 p태그를 추가
+        a.appendChild(ptag);
+
+        // 현재 클릭한 이미지는 다시 클릭이 되지 않도록 onclick 이벤트를 삭제한다.
+        vimg.removeAttribute('onclick');
+        
+    }
+
+
+    // 각 각 img에서 onclick이 아니고 addEventListner()를 이용하는 이벤트 처리
+
+    window.onload = function(){
+        // 전체 이미지를 가져옴
+        vimg = document.querySelectorAll("#result2 img");
+        
+        vimg.forEach( function(n){
+            n.addEventListener('click', function(){
+
+        if(ptag2 != null) ptag2.remove()
+        // 할인율을 랜덤으로 발생 5 ~ 10사이
+        rnd = Math.floor(Math.random() * 6 + 5);
+        // 할인율로 text노르를 생성한다.
+        tnode = document.createTextNode("할인율 : " + rnd + "%");
+        // p태그 생성
+        ptag2 = document.createElement('p');
+        // p태그에 text노드를 자식노드로 추가
+        ptag2.appendChild(tnode);
+        // 클릭한 이미지를 기준으로 부모노드 찾기
+        a = n.parentNode;
+        // 부모노드에 p태그를 추가
+        a.appendChild(ptag2);
+
+        // 현재 클릭한 이미지는 다시 클릭이 되지 않도록 onclick 이벤트를 삭제한다.
+        // 이름이 없는 익명함수(Collback)가 자신을 참조하는 방법
+        // arguments 자기 자신을 참조하는 객체 , 스크립트 함수가 가질수 있다
+        n.removeEventListener('click',arguments.callee);
+
+            })
+        })
+    }
+   
+</script>
+</head>
+<body>
+   <div class="box">
+        <h3>이미지를 클릭하면 할인율 5~10% 사이로 출력 <br>
+        p태그를 생성하고 할인율을 문자 노드로 생성<br>
+        문자 노드를 p태그에 추가 <br>
+        p태그를 클릭한 이미지의 부모 div에 추가한다.
+        </h3>
+        <br><br>
+        <div id="result1" class="res">
+            <div> <img onclick="proc1(this)" src="../images/Penguins.jpg" alt="펭귄"></div>
+            <div> <img onclick="proc1(this)" src="../images/spongebob.png" alt="스폰지밥"></div>
+            <div> <img onclick="proc1(this)" src="../images/Coca-Cola-logo.png" alt="코카콜라"></div>
+            <div> <img onclick="proc1(this)" src="../images/Koala.jpg" alt="코알라"></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <h3>이미지를 클릭하면 할인율 5~10% 사이로 출력 <br>
+        p태그를 생성하고 할인율을 문자 노드로 생성<br>
+        문자 노드를 p태그에 추가 <br>
+        p태그를 클릭한 이미지의 부모 div에 추가한다.
+        </h3>
+        <br><br>
+        <div id="result2" class="res">
+            <div> <img src="../images/Penguins.jpg" alt="펭귄"></div>
+            <div> <img src="../images/spongebob.png" alt="스폰지밥"></div>
+            <div> <img src="../images/Coca-Cola-logo.png" alt="코카콜라"></div>
+            <div> <img src="../images/Koala.jpg" alt="코알라"></div>
+        </div>
+    </div>
+</body>
+</html>

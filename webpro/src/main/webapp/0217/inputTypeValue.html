@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/public.css">
+
+    <script>
+        //function proc1(){
+          //  const proc1 = function(){ }
+            const proc1 = ( ) => {
+
+                /*
+                // id=su1 id=su2 를 검색
+                let vsu1 = document.querySelector("#su1");
+                let vsu2 = document.querySelector("#su2");
+                
+                // 입력한 값을 가져온다.
+                let su1Value = parseInt(vsu1.value);
+                let su2Value = parseInt(vsu2.value);
+
+
+                */
+
+                let su1Value =parseInt(document.querySelector('#su1').value);
+                let su2Value =parseInt(document.querySelector('#su2').value);
+
+        
+
+                // 계산한다.
+                let sum = su1Value + su2Value;
+
+                // 출력
+                // id=out인 요소 검색
+                // let vout = document.getElementById('out');
+                // vout.value = sum;
+
+                document.getElementById('out').value=sum;
+            }
+        
+    </script>
+</head>
+<body>
+    <h3>버튼 클릭시 입력한 수1, 수2를 스크립트에서 계산하고 출력한다</h3>
+    <input type="number" placeholder="수1 입력" id="su1"><br>
+    <input type="number" placeholder="수2 입력" id="su2"><br>
+
+    <input type="number" placeholder="출력" id="out" >
+    <br>
+    <input type="button" value="확인" onclick="proc1()">
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/public.css">
+<script>
+    proc1 = () => {
+        // id = txt인 요소를 검색 - 값 가져오기
+        tvalue = document.querySelector('#txt').value;
+
+        // tvalue를 부모창의 id=result1번에 출력한다
+        opener.document.querySelector('#result1').innerText = tvalue;
+
+        // 자식창 닫기
+        window.close();
+    }
+</script>
+</head>
+<body>
+
+
+   <div class="box">
+        <h3>sub.html 자식임</h3>
+        sub자식창에서 입력을 할거야 입력을하고 입력을해서 부모창으로 넘겨 <br><br>
+        <input type="text" id="txt">
+        <input type="button" value="확인" onclick="proc1()">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+
+</body>
+</html>

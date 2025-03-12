@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script>
+        const proc1 = () => {
+            // parameter 없이 수행- 빈 화면이 열림
+            // window.open();
+
+            window.open("sub.html" , "서브윈도우","width=500 height=400");
+
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h3>main.html 부모임</h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/public.css">
+<script>
+
+    const arr = ["사과", "바나나", "복숭아", "참외", "사과", "수박", "사과"];
+
+    const proc1 = () =>{
+        const arr2 = arr.slice(1,4);
+
+        let str = "원래 배열 : " + arr + "<br>";
+        str += "arr.slice(1,4) : " + arr2 + "<br>";
+
+        document.querySelector("#result1").innerHTML = str
+    }
+
+    const proc2 = () => {
+        
+        const aa = [10,20,30,40,50];
+
+        let arr3 = arr.concat(aa);
+
+        let str = "원래 배열 : " + arr + "<br>";
+        str += "arr.concat(aa) : " + arr3 + "<br>";
+
+        document.querySelector("#result2").innerHTML = str
+    }
+
+    const proc3 = () => {
+
+        const aa = ["김태수","이성화","김철민","정상윤","이학범","이윤석","윤현식"];
+
+        let str = "배열의 길이 : " + aa.length +"<br>";
+
+        for(i=0; i<aa.length; i++){
+            str += `${i}번째 -> ${aa[i]} <br>`
+        }
+
+        document.querySelector("#result3").innerHTML = str;
+
+        let res = aa.join();    // aa배열이 문자열로 변경된다.
+
+        str = "문자열의 길이 : " + res.length  + "<br>";
+
+        for(i=0; i<res.length; i++){
+            str +=  `${i}번째 -> ${res[i]} <br>`
+        }
+
+        document.querySelector("#result3").innerHTML += str;
+
+    }
+
+    const proc4 = () => {
+        let str = "원래 배열 : " + arr + "<br>";
+        /*
+        arr.splice(2,0,"망고","파인애플");
+        str += `arr.splice(2,0,"망고","파인애플") : ${arr}<br>`
+        
+        arr.splice(3,1,"망고","파인애플");
+        str += `arr.splice(3,1,"망고","파인애플") : ${arr}<br>`
+
+        */
+
+
+        arr.splice(3,2);
+        str += `arr.splice(3,2) : ${arr}<br>`
+
+        document.querySelector("#result4").innerHTML += str;
+
+
+    }
+
+
+
+</script>
+</head>
+<body>
+
+
+   <div class="box">
+        <h3>slice(start,end) start ~ end 사이의 문자를 추출</h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+
+    <div class="box">
+        <h3>a.concat(b,c) 여러개의 배열을 하나로 합친다. 새로운 배열 만듬</h3>
+        <input type="button" value="확인" onclick="proc2()">
+        <br><br>
+        <div id="result2" class="res"></div>
+    </div>
+
+    <div class="box">
+        <h3>a.join(b,c) 여러개의 배열을 하나로 합친다. 새로운 배열 만듬</h3>
+        <input type="button" value="확인" onclick="proc3()">
+        <br><br>
+        <div id="result3" class="res"></div>
+    </div>
+
+    <div class="box">
+        <h3>splice(index, n ,a,b,c) : index위치에서, n개를 삭제하고 a,b,c를 삽입한다.</h3>
+        <input type="button" value="확인" onclick="proc4()">
+        <br><br>
+        <div id="result4" class="res"></div>
+    </div>
+
+</body>
+</html>

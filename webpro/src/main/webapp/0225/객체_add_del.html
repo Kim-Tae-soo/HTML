@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/public.css">
+
+  <script>
+    // 문자 배열 생성
+    const arr = ["Hello", "Java", "jsp", "jQuery", "Javascript", "python", "HTML", "CSS"];
+
+    const addProc = () => {
+
+
+      let rnd = Math.floor(Math.random() * arr.length)
+
+      // 문자열 선택 arr[rnd]
+
+      // P태그 노드를 생성
+      ptag = document.createElement('p');
+
+      // 문자 노드 생성
+      txt = document.createTextNode(arr[rnd]);
+
+      // P태그에 문자노드를 자식노드로 추가 한다.
+      ptag.appendChild(txt);
+
+      // result1검색해서 자식노드로 p태그 노드를 추가한다
+      document.querySelector("#result1").appendChild(ptag);
+    }
+
+    const delProc = () => {
+      const result1El = document.querySelector("#result1");
+
+      result1El.removeChild(result1El.lastChild);
+    }
+
+    const addProc1 = () => {
+      let rnd = Math.floor(Math.random() * arr.length)
+
+      // 문자열 선택 arr[rnd]
+
+      // P태그 노드를 생성
+      ptag = document.createElement('p');
+
+      // 문자 노드 생성
+      txt = document.createTextNode(arr[rnd]);
+
+      // P태그에 문자노드를 자식노드로 추가 한다.
+      ptag.appendChild(txt);
+
+      btn = document.createElement('input');
+      btn.type = "button";
+      btn.value = "삭제";
+      btn.onclick = function() {
+        console.log(this);
+
+        // 클릭한 버튼(this)을 기준으로 p태그를 검색
+        let pNode = this.parentNode;
+        pNode.remove();
+      }
+
+      ptag.appendChild(btn);
+      // result1검색해서 자식노드로 p태그 노드를 추가한다
+      document.querySelector("#result2").appendChild(ptag);
+    }
+
+  
+  </script>
+</head>
+<body>
+  
+  <div class="box">
+    <h3></h3>
+    <input type="button" value="추가" onclick="addProc()">
+    <input type="button" value="삭제" onclick="delProc()">
+    <br><br>
+    <div id="result1" class="res"></div>
+  </div>
+
+  <div class="box">
+    <h3></h3>
+    <input type="button" value="추가삭제" onclick="addProc1()">
+    <br><br>
+    <div id="result2" class="res"></div>
+  </div>
+
+</body>
+</html>

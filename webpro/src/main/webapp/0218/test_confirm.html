@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <script>
+
+        
+
+        const proc1 = () => {
+
+            let res ="";
+
+
+            // 출력 장소를 검색
+            let out = document.getElementById('result1');
+
+            while (true) {
+
+                // 구구단 입력
+                let su = prompt("구구단 입력");
+
+                res += `**** ${su}단 **** <br>`;
+
+                // 반복문 실행
+                for(let i=1; i<10; i++){
+
+                    // res += su + " * " + i + " = " + (su*i);
+
+                    res += `${su} * ${i} = ${su * i} <br>`;
+ 
+                }
+                // 출력
+
+                out.innerHTML = res
+
+                // 계속여부???? - confirm() - break
+
+                let yn = confirm("계속 하시겠습니까?");
+
+                if(!yn) break;
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <div class="box">
+        <h3></h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+
+</body>
+
+</html>

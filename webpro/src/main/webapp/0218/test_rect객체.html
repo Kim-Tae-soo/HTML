@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <script>
+        //리터럴 객체
+        const rect = {
+            width: 3,
+            height: 5,
+            getArea: function () {
+                return this.width * this.height
+            },
+
+            getCircum: function () {
+               return (parseInt(this.width) + parseInt(this.height)) * 2
+            }
+
+        }
+
+        const proc1 = () => {
+            // 정보출력
+            printRect("result1"); // 출력 함수 호출
+
+        }
+
+        const printRect = (result) =>{
+            // 실제로 정보 출력
+            let str = `가로 : ${rect.width} <br>`
+            str += `세로 : ${rect.height} <br>`;
+            
+            /*
+            area = rect.getArea();
+            circim = rect.getCircum();
+
+            str += `면적 : ${area} <br>`;
+            str += `둘레 : ${circum} <br>`;
+            */ 
+
+            str += `면적 : ${rect.getArea()} <br>`;
+            str += `둘레 : ${rect.getCircum()} <br>`;
+
+            document.getElementById(result).innerHTML=str;
+            
+        }
+
+        const proc2 = () => {
+            // 가로, 세로 입력
+            rect.width = prompt("가로 입력");
+            rect.height = prompt("세로 입력");
+
+            // 정보 출력 - 출력 함수를 호출한다.
+            printRect("result2");
+
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <div class="box">
+        <h3></h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+
+    <div class="box">
+        <h3></h3>
+        <input type="button" value="확인" onclick="proc2()">
+        <br><br>
+        <div id="result2" class="res"></div>
+    </div>
+
+</body>
+
+</html>

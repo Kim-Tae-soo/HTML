@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/public.css">
+<script>
+    const arr = [ "사과","바나나","복숭아", 200,500];
+
+    const proc1 = () => {
+        //arr배열 출력
+        //id=result1인 요소 검색
+
+        let out = document.getElementById("result1");
+
+        // 방법1, 배열 이름을 이용
+        //out.innerHTML = arr;
+
+        /*
+        let str ="";
+        // 방법2
+        for(let i=0; i<arr.length;){
+            // str += arr[i] + "<br>";
+            str += `${arr[i]} <br>`;
+        }
+
+        out.innerHTML = str;
+        */
+
+        //방법3
+        /*
+        let str = "";
+        arr.forEach(function(item, index){
+
+           // str += index + "몇 번째 : " +  item + "<br>";
+            str +=  `${index}번째 : ${item} <br> `
+        })
+
+        out.innerHTML = str;
+        */
+
+
+        //방법4
+        /*
+        let str = "";
+        arr.forEach((item, index) => {
+
+           // str += index + "몇 번째 : " +  item + "<br>";
+            str +=  `${index}번째 : ${item} <br> `
+        })
+
+        out.innerHTML = str;
+        */
+
+        let str = "";
+        for(let item of arr){
+            str += item +"<br>";
+        }
+        out.innerHTML = str;
+
+    }
+
+</script>
+</head>
+<body>
+<div class="box">
+<h3></h3>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1" class="res"></div>
+</div>
+</body>
+</html>

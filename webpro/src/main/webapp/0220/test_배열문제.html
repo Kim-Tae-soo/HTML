@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/public.css">
+<script>
+    const proc1 = () => {
+        // 배열 변수
+        const arr = [];
+        
+        while (true) {
+            // 입력
+            const input = prompt("이름을 입력하세요:");
+
+            // break 조건
+            if (input == "" || input == null) break;
+
+            // 배열에 저장
+            arr.push(input);
+        }
+
+        // 출력한다
+        document.querySelector("#result1").innerHTML = arr;
+    }
+
+    const proc2 = () => {
+
+        // 저장 할 배열을 선언
+        const arr = [];
+        // 반복문
+        while(true){
+            // 입력
+            const input = prompt("정수 입력");
+
+            if(input == null || input == "") continue;
+
+            // break 조건
+            if(arr.indexOf(input) < 0 ) {
+                arr.push(input);
+            }
+            if(arr.length >= 5) break;
+        }
+
+        // 출력한다
+        document.querySelector("#result2").innerHTML = arr;
+
+
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h3>
+            prompt()를 이용하여 이름을 계속 입력 받아 배열에 저장하고 출력하는 프로그램을 작성하시오. <br>
+            입력의 마지막은 공백 문자를 입력하거나 “취소” 버튼을 눌렀을 때(null)로 한다.
+        </h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+    <div class="box">
+        <h3>
+            서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램을 작성하시오 <br>
+            중복된 수는 배열에 저장하지 않는다.  입력횟수는 5번 이상이 될 수도 있다.
+        </h3>
+        <input type="button" value="확인" onclick="proc2()">
+        <br><br>
+        <div id="result2" class="res"></div>
+    </div>
+</body>
+</html>

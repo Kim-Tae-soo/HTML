@@ -77,7 +77,26 @@ ES1,2,3,4,5
         getElementsByClassName()
         getElementsByTagName()
 ES6 (2015년) 
+1. 변수선언
     ==> let
         const
         querySelector()
         querySelectorAll() 
+
+2. 화살표 함수
+        함수표현식을 응용한 => 함수
+
+        선언식
+        function proc1() { }
+
+        표현식
+        proc1 = function() { }
+
+        화살표 함수
+        proc1 = () => { }
+        
+
+3. 템플릿 리터럴
+        백틱을 이용한 템플릿 리터럴
+        문자열과 변수를 하나의 문자열을 생성 , " " 나 + 기호 없이 기술
+        ${변수}로 값을 출력한다.

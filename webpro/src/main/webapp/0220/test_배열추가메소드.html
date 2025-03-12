@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <link rel="stylesheet" href="/css/public.css">
+  <script>
+    const arr = ["사과", "바나나", "복숭아", "오렌지", "사과", "포도", "참외"];
+    const proc1 = () => {
+      //let target = "사과";
+      let target = prompt("찾는 과일 입력");
+
+      let frvalue = arr.find(function (fr, index) {
+        if (fr == target) return fr;
+      })
+
+      // 출력
+      let str = `찾는 과일 : ${target} <br>`;
+
+      // 비교
+      if (typeof frvalue == "undefined") {
+        str += `없어요`
+
+      } else {
+        str += `있어요`
+      }
+
+      document.querySelector("#result1").innerHTML = str
+    }
+
+    const proc2 = () => {
+      // index = 2 인 요소를 찾는다
+      let idx = 2;
+      let frvalue = arr.find((fr, index) => {
+        return index == idx; // fr을 리턴한다.
+      })
+
+      let str = `index ${idx}인 항목 : `;
+      if (typeof frvalue == "undefined") {
+        str += `없어요`
+      } else {
+        str += ` ${frvalue}있어요`
+      }
+
+      document.querySelector("#result2").innerHTML = str
+
+    }
+
+    const proc3 = () => {
+      const nums = [11, 22, 33, 44, 55, 66];
+
+      // 짝수 찾기
+      let even = nums.find((fr, index) => {
+        return fr % 2 == 0; // fr를 리턴
+      })
+
+      let str = "첫번째 짝수";
+      if (typeof even == "undefined") {
+        str += "없어요"
+      } else {
+        str += `${even} 있어요`;
+      }
+
+      document.querySelector("#result3").innerHTML = str;
+    }
+
+    const proc4 = () => {
+
+      // index의 위치 찾기
+      let item = "사과";
+      
+      let frvalue = arr.findIndex(fr => {
+        return fr == item;
+      })
+
+      let str = `${item}의 위치 : ${frvalue} <br>`
+      if (frvalue < 0) {
+        str += "없어요<br>"
+      } else {
+        str += `${frvalue}번째에 있어요`;
+      }
+
+      document.querySelector("#result4").innerHTML = str;
+
+      /////////////////////////////////////////////////////////////////////////////////
+      // 첫번째 짝수의 위치찾기
+
+      const nums = [1, 2, 3, 8, 5, 9]
+      item = "짝수";
+
+      frvalue = nums.findIndex(fr => {
+        return fr % 2 == 0; //위치를 리턴한다
+      })
+
+
+      str = `${item}의 위치 : ${frvalue} <br>`
+      if (frvalue < 0) {
+        str += "없어요"
+      } else {
+        str += `${frvalue}번째에 있어요`;
+      }
+
+      document.querySelector("#result4").innerHTML += str;
+
+    }
+
+    const proc5 = () => {
+
+      let item = "사과";
+      let idx = "";
+
+      let newArr = arr.filter(function(fr, index){
+        // return fr == item; // fr를 리턴 - 사과를 3번 리턴, newArr배열로 저장
+
+        // 위치도 함께 출력
+        if(fr == item){
+          idx += index + "번째";
+          return fr;
+        }
+      })
+
+      let str = `찾는 과일 : ${item} <br>`
+      str += `${idx}에 있습니다.`
+
+      document.querySelector("#result5").innerHTML = newArr + "<br>";
+      document.querySelector("#result5").innerHTML += str + "<br>";
+
+      // ------------------------------------------------------------
+
+      const nums = [10,5,9,20,56,1]
+    // 모든 짝수 값 찾기
+    idx = "위치 : ";
+    str = "모든 짝수 값 찾기  ";
+
+    let numArr = nums.filter((fr, index) => {
+      if(fr % 2 == 0){
+        idx += `${index}번째 `;
+        return fr;
+      }
+    });
+    str += `${numArr} <br>`;
+    str += `${idx}`;
+
+    document.querySelector("#result5").innerHTML += str;
+
+      
+    }
+
+    const proc6 = () => {
+      const numbers = [9,4,1,3,7];
+      // let total = 0;
+
+      /*
+      for(i=0; i<numbers.length; i++){
+        total += numbers[i]
+      }
+      total = 0;
+
+      numbers.forEach( num => {
+        total += num;
+      })
+        */
+
+      let total = numbers.reduce( function(tot,args){
+        return tot + args;
+      },0);
+
+      let str = `[ ${numbers} ]합 = ${total} <br>`; 
+
+      document.querySelector("#result6").innerHTML = str;
+
+      // 최대값 구하기
+      let lager = numbers.reduce( function(tot,args){
+        if(tot < args){
+          return args;
+        } else{
+          return tot;
+        }
+      }); // 초기값 생략 ; 배열의 첫번째 요소가 자동으로 대입
+
+      str = `[ ${numbers} ] 최대값 = ${lager}`
+      document.querySelector("#result6").innerHTML += str;
+    }
+
+    const proc7 = () => {
+    
+      const fruits = ["APPLE", "BAnana", "CHErry"] ;
+      const numbers = [1,2,3,4,5];
+
+      const lower = fruits.map(function(fr,index){
+        return fr.toLowerCase()
+      })
+
+      let str = `[ ${fruits}] => [${lower}] <br>`;
+      document.querySelector("#result7").innerHTML = str;
+
+      const newNum = numbers.map((num,index)=>{
+        return num * num;
+      })
+
+      str = `[${numbers}] 제곱 => [${newNum}] <br>`;
+
+      document.querySelector("#result7").innerHTML +=str; 
+
+    }
+
+    const proc8 = () => {
+      const numbers = [40,54,67,58.30];
+
+      /*
+      let res = numbers.some(function(num){
+        return num >= 60;
+      })
+      */
+
+      // 모든 값이 60점 이상이면 true를 return 하시오.
+      let res = numbers.every(function(num){
+        return num >= 60;
+      })
+
+      let str = `취득 점수 : [${numbers}] <br>`
+      if(res){
+        str += "합격";
+      }else{
+        str += "불합격"
+      }
+      document.querySelector("#result8").innerHTML +=str; 
+    }
+
+
+
+
+  </script>
+
+
+</head>
+
+<body>
+
+  <div class="box">
+
+    <h3>1. find : 해당 요소 찾기(사과) - 첫번째 요소, 없으면 undefine <br> undefine를 비교 할 때 typeof frvalue == "undefined"
+    </h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <br><br>
+
+    <div id="result1" class="res"></div>
+  </div>
+
+  <div class="box">
+
+    <h3>2. find : 인덱스를 이용한 요소 찾기(index==2) - 첫번째 요소, 없으면 undefined
+    </h3>
+    <input type="button" value="확인" onclick="proc2()">
+    <br><br>
+
+    <div id="result2" class="res"></div>
+  </div>
+
+  <div class="box">
+
+    <h3>3. find : 짝수값 , 홀수 찾기, - 첫번째 요소 하나만 검색 - 없으면 undefined<br>
+      var nums = [11,22,33,44,55,66];
+    </h3>
+    <input type="button" value="확인" onclick="proc3()">
+    <br><br>
+
+    <div id="result3" class="res"></div>
+  </div>
+
+  <div class="box">
+
+    <h3>4. findIndex : 요소의 위치 찾기 - 첫번째 요소만 찾는다, 없으면 -1<br>
+      var nums = [1,2,3,8,5,9] <br>
+      사과위치 찾기 / 짝수위치 찾기 - indexOf와 같은 결과가 나옴
+    </h3>
+    <input type="button" value="확인" onclick="proc4()">
+    <br><br>
+    <div id="result4" class="res"></div>
+  </div>
+
+  <div class="box">
+
+    <h3>5. filter : 조건을 만족하는 모든요소를 배열형테로 변환<br>
+      모든 사과 찾기 / 모든 짝수 찾기<br>
+      nums = [10,5,9,20,56,1]
+    </h3>
+    <input type="button" value="확인" onclick="proc5()">
+    <br><br>
+    <div id="result5" class="res"></div>
+  </div>
+
+  <div class="box">
+    <h3>
+      const numbers = [9,4,1,3,7]<br>
+      redece()메소드는 배열의 각요소에 대해 주어진 리듀서 함수를 실행하여 <br>
+      하나의 결과값을 반환<br>
+      numbers.reduce(function(tot, atgs){ 리듀서 함수 }) <br>
+      6. reduce : 모든요소를 이용하여 하나의 값으로 만들때- 합구하기
+    </h3>
+    <input type="button" value="확인" onclick="proc6()">
+    <br><br>
+    <div id="result6" class="res"></div>
+  </div>
+
+  <div class="box">
+    <h3>
+      const fruits = ["APPLE", "BAnana", "CHErry"] / numbers = [1,2,3,4,5]<br>
+      <br>
+      7. map : 전체배열을 대상으로 각 배열요소를 순회하며 콜백함수를 실행한 결과를 모아
+      새로운 배열을 반환 <br>
+      원본 배열은 변경되지 않는다<br>
+      fruits 배열의 각요소를 소문자로 변환 / numbers 배열 각요소의 제곱구하기
+    </h3>
+    <input type="button" value="확인" onclick="proc7()">
+    <br><br>
+
+    <div id="result7" class="res"></div>
+  </div>
+
+
+  <div class="box">
+    <h3>
+      numbers = [40,54,67,58,30]<br>
+      <br>
+      8. some : 조건을 만족하는 요소가 하나라도 있는지- true/ flase <br>
+      every : 배열의 모든 요소가 조건을 만족하는 지 -true/ flase
+    </h3>
+    <input type="button" value="확인" onclick="proc8()">
+    <br><br>
+
+    <div id="result8" class="res"></div>
+  </div>
+
+</body>
+
+</html>

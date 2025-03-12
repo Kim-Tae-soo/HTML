@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/public.css">
+
+<script>
+
+    // DATE 객체 생성
+    let today1 = new Date();
+    let today2 = new Date(2000);
+    let today3 = new Date("2000,04,25");
+    let today4 = new Date(2000, 4-1,25)
+
+    console.log(today1);
+    console.log(today2);
+    console.log(today3);
+    console.log(today4);
+
+    const proc1 = () => {
+        
+        day1 = today1.toLocaleString();
+        day2 = today2.toLocaleString();
+        // day3 = today3.toLocaleString();
+        day3 = today3.toLocaleDateString();
+        day4 = today4.toLocaleString();
+        day4 = today4.toLocaleTimeString();
+
+        let str = `${day1}<br>`
+        str += `${day2}<br>`
+        str += `${day3}<br>`
+        str += `${day4}<br>`
+
+        document.querySelector('#result1').innerHTML = str
+
+        
+    }
+
+    const proc2 = () => {
+
+        let day = today1.getDay();
+
+        switch(day){
+            
+            case 0:
+                res = "일요일";
+                break;
+            case 1:
+                res = "월월요일";
+                break;
+            case 2:
+                res = "화요일";
+                break;
+            case 3:
+                res = "수요일";
+                break;
+            case 4:
+                res = "목요일";
+                break;
+            case 5:
+                res = "금요일";
+                break;
+            case 6:
+                res = "토요일"; 
+                break;
+        }
+
+        let str = "오늘은 " + today1.toLocaleString() + "<br>";
+        str += res + "입니다."
+
+        document.querySelector('#result2').innerHTML = str
+
+
+    }
+
+    const proc3 = () =>{
+        const arrday = ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];
+
+        let day = today1.getDay();
+
+        arrday[day]
+
+        let str = "오늘은 " + today1.toLocaleString() + "<br>";
+        str += arrday[day] + "입니다."
+
+        document.querySelector('#result3').innerHTML = str
+
+
+    }
+
+
+</script>
+</head>
+<body>
+
+
+   <div class="box">
+        <h3></h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <br><br>
+        <div id="result1" class="res"></div>
+    </div>
+
+    <div class="box">
+        <h3>요일 구하기 :getDay() : 0~6 사이의 값을 리턴 <br> if나 swich로 비교</h3>
+        <input type="button" value="확인" onclick="proc2()">
+        <br><br>
+        <div id="result2" class="res"></div>
+    </div>
+
+    <div class="box">
+        <h3>배열</h3>
+        <input type="button" value="확인" onclick="proc3()">
+        <br><br>
+        <div id="result3" class="res"></div>
+    </div>
+
+</body>
+</html>

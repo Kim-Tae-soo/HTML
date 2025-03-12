@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 300px;
+        background: dodgerblue;
+      }
+      #container div {
+        background: white;
+        width: 100px;
+        margin: 10px;
+        font-size: 30px;
+      }
+      #container div:nth-child(2n) {
+        font-size: 80px;
+      }
+    </style>
+
+    <script>
+      window.onload = function () {
+        // 메뉴 선택
+        let menu = document.querySelectorAll("input[type=radio]");
+        let menu1 = document.querySelectorAll('input');
+        let menu2 = document.getElementsByTagName('input');
+
+        console.log("menu1 = " , menu1);
+        console.log("menu2 = " , menu2);
+        // flex 부모요소를 검색
+        let parent = document.getElementById("container");
+        parent = document.querySelector("#container");
+        parent = document.querySelector("div[id=container]");
+        for (let i = 0; i < menu.length; i++) {
+          menu[i].addEventListener("change", function () {
+            // flex의 부모 요소의 정렬방식을 메뉴선택한 값으로 변경 - 자식 요소들의 위치가 바뀜
+            parent.style.justifyContent = menu[i].value;
+          });
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h3>가로정렬 : justify content</h3>
+
+    <form name="ff">
+      <label>
+        <input type="radio" name="fdType" value="center" checked />center
+      </label>
+      <label>
+        <input type="radio" name="fdType" value="flex-start" />flex-start
+      </label>
+      <label>
+        <input type="radio" name="fdType" value="flex-end" />flex-end
+      </label>
+      <label>
+        <input type="radio" name="fdType" value="space-between" />space-between
+      </label>
+      <label>
+        <input type="radio" name="fdType" value="space-around" />space-around
+      </label>
+    </form>
+    <br />
+    <div id="container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
+  </body>
+</html>
